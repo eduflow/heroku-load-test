@@ -14,6 +14,12 @@ def index():
     return "Hello World!"
 
 
+@app.route("/api/foo/<user_id>")
+def api_foo(user_id):
+    user = {'userId': int(user_id)}
+    return str(user['userId'])
+
+
 @app.route("/api/user/<user_id>")
 def api_user(user_id):
     user = db.user.find_one({'userId': int(user_id)})
